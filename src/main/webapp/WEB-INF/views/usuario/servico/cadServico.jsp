@@ -77,58 +77,62 @@
 									<span class="input-group-addon"><i
 										class="glyphicon glyphicon-ok form-control-feedback"></i></span>
 								</div>
-								<br />
-								<!-- Campo preco -->
-								<label for="desconto"><spring:message
-										code="label.precoTotal" /></label>
-								<div id="datetimepicker4" class="input-append">
-									<spring:message code="placeholder.precoTotal" var="plhdesconto" />
-									<form:input path="precoTotal" placeholder="${plhdesconto}"
-										maxlength="13" />
-								</div>
 								<br /> <b>Paciente:</b>
 								<c:if test="${empty listaPacientes}">
 									<b><font color="red">Não existem Pacientes
 											cadastrados</font></b>
-									<br />
-									<br />
 								</c:if>
-								<c:if test="${not empty listaPacientes}">>
-								<form:select path="usuario" cssClass="form-control">
-										<form:option value="0" label="--Select--" />
-										<form:options items="${listaPacientes}" itemValue="idPaciente"
-											itemLabel="nome" />
-									</form:select>
+								<c:if test="${not empty listaPacientes}">
+
+									<select id="selectSabor" class="multiselect" name="valorPaciente">
+										<c:forEach items="${listaPacientes}" var="valor"
+											varStatus="count">
+											<option value="${valor.idPaciente}">${ valor.nome }</option>
+										</c:forEach>
+									</select>
 								</c:if>
+								<br /> <br />
+								<!-- Campo preco -->
+								<div id="datetimepicker4" class="input-append">
+									<label for="desconto"><spring:message
+											code="label.precoTotal" /></label>
+									<spring:message code="placeholder.precoTotal" var="plhdesconto" />
+									<form:input path="precoTotal" placeholder="${plhdesconto}"
+										maxlength="13" />
+								</div>
 								<br /> <b>Plano:</b>
 								<c:if test="${empty listaPlanos}">
 									<b><font color="red">Não existem Planos cadastrados</font></b>
-									<br />
-									<br />
 								</c:if>
 								<c:if test="${not empty listaPlanos}">
-									<form:select path="plano" cssClass="form-control">
-										<form:option value="0" label="--Select--" />
-										<form:options items="${listaPlanos}" itemValue="idPlano"
-											itemLabel="nome" />
-									</form:select>
+									<!-- Build your select: -->
+									<select class="select2" style="width: 400px;"
+										multiple="multiple" id="mySel4" name="valorPlano">
+										<c:forEach items="${listaPlanos}" var="valor"
+											varStatus="count">
+											<option value="${valor.idPlano}">${ valor.nome }</option>
+										</c:forEach>
+									</select>
+
 								</c:if>
 
-								<br /> <b>Medicamento:</b><br />
+								<b>Medicamento:</b>
 								<c:if test="${empty listaMedicamentos}">
-									<b><font color="red">Não existem Medicamentos cadastrados</font></b>
+									<b><font color="red">Não existem Medicamentos
+											cadastrados</font></b>
 									<br />
 									<br />
 								</c:if>
 								<c:if test="${not empty listaMedicamentos}">
-								<select id="selectSabor" class="multiselect" multiple="multiple"
-									name="valorSabores">
-									<c:forEach items="${listaMedicamentos}" var="valor"
-										varStatus="count">
-										<option value="${valor.idMedicamento}">${ valor.descricao }</option>
-									</c:forEach>
-								</select>
-								</c:if> <br /> <input type="submit" name="submit" id="submit"
+									<select class="select2" id="mySel3" style="width: 400px;"
+										multiple="multiple" name="valorMedicamento">
+										<c:forEach items="${listaMedicamentos}" var="valor"
+											varStatus="count">
+											<option value="${valor.idMedicamento}">${ valor.descricao }</option>
+										</c:forEach>
+									</select>
+								</c:if>
+								<br /> <br /> <input type="submit" name="submit" id="submit"
 									value="<spring:message code="botao.cadastrar"/>"
 									class="btn btn-info pull-left">
 							</div>

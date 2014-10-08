@@ -17,6 +17,9 @@
 <link href="<c:url value='/resources/css/bootstrap-multiselect.css'  />"
 	rel="stylesheet" />
 <link
+	href="http://davidstutz.github.io/bootstrap-multiselect/css/bootstrap-multiselect.css"
+	rel="stylesheet" />
+<link
 	href="<c:url value='/resources/fonts/glyphicons-halflings-regular.eot'  />"
 	rel="stylesheet" />
 <link
@@ -57,6 +60,39 @@
 									'glyphicon-chevron-up');
 						}
 					});
+		</script>
+		<script type="text/javascript">
+			$
+					.getScript(
+							'http://davidstutz.github.io/bootstrap-multiselect/js/bootstrap-multiselect.js',
+							function() {
+
+								$("#mySel3").multiselect({
+
+								});
+							});
+		</script>
+		<script type="text/javascript">
+			$
+					.getScript(
+							'http://davidstutz.github.io/bootstrap-multiselect/js/bootstrap-multiselect.js',
+							function() {
+
+								$("#mySel5").multiselect({
+
+								});
+							});
+		</script>
+		<script type="text/javascript">
+			$
+					.getScript(
+							'http://davidstutz.github.io/bootstrap-multiselect/js/bootstrap-multiselect.js',
+							function() {
+
+								$("#mySel4").multiselect({
+
+								});
+							});
 		</script>
 	</div>
 	<tiles:insertAttribute name="footer" />

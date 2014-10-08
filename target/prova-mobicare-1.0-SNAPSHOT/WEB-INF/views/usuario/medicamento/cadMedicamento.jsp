@@ -149,7 +149,7 @@
 									</thead>
 									<tbody>
 										<!-- Populando a tabela -->
-										<c:forEach var="medicamento" items="${listaMedicamentos}">
+										<c:forEach var="medicamento" items="${listaMedicamento}">
 											<c:url var="deleteMedicamento"
 												value="/medicamento/deletar?idMedicamento=${medicamento.idMedicamento}" />
 											<c:url var="updateMedicamento"
@@ -192,7 +192,7 @@
 						<h3 style="color: red;"><spring:message code="mensagem.certeza"/></h3>
 					</div>
 					<div class="modal-body">
-						<p><spring:message code="mensagem.certeza"/></p>
+						<p><spring:message code="mensagem.exclusaoMedicamento"/></p>
 					</div>
 					<div class="modal-footer">
 						<a href="${deleteMedicamento}" id="btnYes" class="btn confirm">Sim,

@@ -1,13 +1,17 @@
 package br.com.mobicare.modelo;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-@Table(name="plano")
+@Table(name = "plano")
 @Entity
 public class Plano {
 	@Id
@@ -18,6 +22,8 @@ public class Plano {
 	private String cnpj;
 	private Date dataEntrega;
 	private double desconto;
+	@ManyToMany(mappedBy = "planos", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Servico> servico;
 
 	public double getDesconto() {
 		return desconto;
@@ -46,7 +52,7 @@ public class Plano {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
 	public String getAns() {
 		return ans;
 	}
@@ -71,5 +77,11 @@ public class Plano {
 		this.dataEntrega = dataEntrega;
 	}
 
-}
+	public List<Servico> getServico() {
+		return servico;
+	}
 
+	public void setServico(List<Servico> servico) {
+		this.servico = servico;
+	}
+}
